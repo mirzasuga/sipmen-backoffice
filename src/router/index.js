@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import store from '../store'
 import HelloWorld from '@/components/HelloWorld'
 import Login from '@/views/Login'
+import BranchManagement from '@/views/BranchManagement'
+import BranchForm from '@/components/BranchForm'
 
 Vue.use(Router)
 const router = new Router({
@@ -21,6 +23,24 @@ const router = new Router({
       name: 'Login',
       component: Login,
       meta: {guest: true}
+    },
+    {
+      path: '/branch-management',
+      name: 'BranchManagement',
+      component: BranchManagement,
+      meta: {
+        requiresAuth: true,
+        scopes: []
+      }
+    },
+    {
+      path: '/branch-management/new',
+      name: 'create.Branch',
+      component: BranchForm,
+      meta: {
+        requiresAuth: true,
+        scopes: []
+      }
     }
   ]
 })
@@ -43,7 +63,7 @@ router.beforeEach((to, from, next) => {
       store.commit('layout/setLayout', 'dashboard-layout')
 
       to.matched.some(record => {
-        if (record.meta.scopes) {
+        if (record.meta.scopes.length > 0) {
           record.meta.scopes.forEach(scope => {
             if (userScope.includes(scope)) {
               next()

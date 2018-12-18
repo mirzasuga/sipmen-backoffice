@@ -2,12 +2,15 @@
 import router from '../../router/index'
 const state = {
   token: localStorage.getItem('token') || null,
-  user: {}
+  user: localStorage.getItem('user') || null
 }
 
 const getters = {
   token(state) {
     return (state.token) ? JSON.parse(state.token).access_token : null
+  },
+  user(state) {
+    return (state.user) ? JSON.parse(state.user) : {}
   }
 }
 

@@ -4,6 +4,7 @@ import wilayah from './modules/wilayah'
 import navbar from './modules/navbar'
 import layout from './modules/layout'
 import auth from './modules/auth'
+import branch from './modules/branch'
 
 Vue.use(Vuex)
 
@@ -12,7 +13,8 @@ export default new Vuex.Store({
     auth,
     wilayah,
     navbar,
-    layout
+    layout,
+    branch
   },
   strict: false,
   plugins: []

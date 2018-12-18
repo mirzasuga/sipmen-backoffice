@@ -12,12 +12,19 @@ const MENU = [
   {
     icon: "bubble_chart",
     title: "Branch",
-    target: "BranchManagements",
-    items: [{
-      icon: "bubble_chart",
-      title: "Tambah Branch",
-      target: "BranchManagements",
-    }]
+    target: "BranchManagement",
+    items: [
+      {
+        icon: "bubble_chart",
+        title: "Tambah Branch",
+        target: "create.Branch",
+      },
+      {
+        icon: "bubble_chart",
+        title: "Daftar Branch",
+        target: "BranchManagement",
+      }
+    ]
   },
   {
     icon: "bubble_chart",

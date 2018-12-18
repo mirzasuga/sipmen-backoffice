@@ -23,6 +23,7 @@ export default {
   }),
   created () {
     this.$store.dispatch('wilayah/getAllProvinces')
+    this.$store.dispatch('branch/getAllBranch')
   },
   name: 'App'
 }
