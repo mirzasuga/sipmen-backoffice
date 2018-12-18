@@ -43,7 +43,7 @@ router.beforeEach((to, from, next) => {
       store.commit('layout/setLayout', 'dashboard-layout')
 
       to.matched.some(record => {
-        if (record.meta.scopes) {
+        if (record.meta.scopes.length > 0) {
           record.meta.scopes.forEach(scope => {
             if (userScope.includes(scope)) {
               next()
