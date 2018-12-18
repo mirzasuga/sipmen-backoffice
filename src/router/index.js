@@ -11,7 +11,10 @@ const router = new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld,
-      meta: {requiresAuth: true}
+      meta: {
+        requiresAuth: true,
+        scopes: []
+      }
     },
     {
       path: '/login',
@@ -35,23 +38,38 @@ router.beforeEach((to, from, next) => {
       })
     } else {
       const token = JSON.parse(atob(accessToken.split('.')[1]))
-      const scopes = token.scopes
+      const userScope = token.scopes
 
       store.commit('layout/setLayout', 'dashboard-layout')
-      if (to.matched.some(record => record.meta.vendor_owner)) {
-        if (scopes.includes('vendor_owner')) {
-          next()
-        } else {
-          store.commit('SET_ALERT', {
-            type: 'warning',
-            show: true,
-            msg: 'Anda tidak memiliki hak akses untuk halaman tersebut'
+
+      to.matched.some(record => {
+        if (record.meta.scopes) {
+          record.meta.scopes.forEach(scope => {
+            if (userScope.includes(scope)) {
+              next()
+            } else {
+              next({name: 'home'})
+            }
           })
-          next({ name: 'home' })
+        } else {
+          next()
         }
-      } else {
-        next()
-      }
+      })
+
+      // if (to.matched.some(record => record.meta.vendor_owner)) {
+      //   if (scopes.includes('vendor_owner')) {
+      //     next()
+      //   } else {
+      //     store.commit('SET_ALERT', {
+      //       type: 'warning',
+      //       show: true,
+      //       msg: 'Anda tidak memiliki hak akses untuk halaman tersebut'
+      //     })
+      //     next({ name: 'home' })
+      //   }
+      // } else {
+      //   next()
+      // }
     }
   } else if (to.matched.some(record => record.meta.guest)) {
     if (accessToken == null) {
