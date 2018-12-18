@@ -1,20 +1,70 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '../store'
 import HelloWorld from '@/components/HelloWorld'
+import Login from '@/views/Login'
 
 Vue.use(Router)
-
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: HelloWorld,
+      meta: {requiresAuth: true}
     },
     {
       path: '/login',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Login',
+      component: Login,
+      meta: {guest: true}
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  const accessToken = store.getters['auth/token']
+
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (accessToken == null) {
+      store.commit('layout/setLayout', 'auth-layout')
+
+      next({
+        path: '/login',
+        params: { nextUrl: to.fullPath }
+      })
+    } else {
+      const token = JSON.parse(atob(accessToken.split('.')[1]))
+      const scopes = token.scopes
+
+      store.commit('layout/setLayout', 'dashboard-layout')
+      if (to.matched.some(record => record.meta.vendor_owner)) {
+        if (scopes.includes('vendor_owner')) {
+          next()
+        } else {
+          store.commit('SET_ALERT', {
+            type: 'warning',
+            show: true,
+            msg: 'Anda tidak memiliki hak akses untuk halaman tersebut'
+          })
+          next({ name: 'home' })
+        }
+      } else {
+        next()
+      }
+    }
+  } else if (to.matched.some(record => record.meta.guest)) {
+    if (accessToken == null) {
+      store.commit('layout/setLayout', 'auth-layout')
+
+      next()
+    } else {
+      store.commit('layout/setLayout', 'dashboard-layout')
+      next({ name: 'home' })
+    }
+  } else {
+    next()
+  }
+})
+
+export default router

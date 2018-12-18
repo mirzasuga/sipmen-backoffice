@@ -6,17 +6,21 @@
 
 <script>
 import Dashboard from './layouts/Dashboard.vue'
-// import Auth from './layouts/Auth.vue'
-
+import Auth from './layouts/Auth.vue'
+import {mapState} from 'vuex'
 export default {
   components: {
-    'dashboard-layout': Dashboard
+    'dashboard-layout': Dashboard,
+    'auth-layout': Auth
   },
   data () {
     return {
-      layout: 'dashboard-layout'
+
     }
   },
+  computed: mapState({
+    layout: state => state.layout.layout
+  }),
   created () {
     this.$store.dispatch('wilayah/getAllProvinces')
   },
