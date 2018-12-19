@@ -78,7 +78,7 @@ router.beforeEach((to, from, next) => {
             if (userScope.includes(scope)) {
               next()
             } else {
-              next({name: 'home'})
+              next({name: 'HelloWorld'})
             }
           })
         } else {
