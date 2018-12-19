@@ -6,6 +6,7 @@ import Login from '@/views/Login'
 import BranchManagement from '@/views/BranchManagement'
 import BranchForm from '@/components/BranchForm'
 import TarifForm from '@/components/TarifForm'
+import TarifList from '@/components/TarifList'
 
 Vue.use(Router)
 const router = new Router({
@@ -47,6 +48,15 @@ const router = new Router({
       path: '/tarif-management/new',
       name: 'create.Tarif',
       component: TarifForm,
+      meta: {
+        requiresAuth: true,
+        scopes: []
+      }
+    },
+    {
+      path: '/tarif-management',
+      name: 'read.Tarif',
+      component: TarifList,
       meta: {
         requiresAuth: true,
         scopes: []

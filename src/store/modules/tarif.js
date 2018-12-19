@@ -2,7 +2,11 @@
   const state = {
       tarifs: []
   }
-  const getters = {}
+  const getters = {
+      tarifs(state) {
+          return state.tarifs;
+      }
+  }
   
   const actions = {
       getAllTarifs({commit, rootGetters}) {

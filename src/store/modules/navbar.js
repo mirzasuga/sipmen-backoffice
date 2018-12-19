@@ -10,31 +10,38 @@ const api_endpoint = process.env.API_ENDPOINT
 // ]
 const MENU = [
   {
-    icon: "bubble_chart",
+    icon: "pin_drop",
     title: "Branch",
     target: "BranchManagement",
     items: [
       {
-        icon: "bubble_chart",
+        icon: "create",
         title: "Tambah Branch",
         target: "create.Branch",
       },
       {
-        icon: "bubble_chart",
+        icon: "list",
         title: "Daftar Branch",
         target: "BranchManagement",
       }
     ]
   },
   {
-    icon: "bubble_chart",
+    icon: 'account_balance_wallet',
     title: "Tarif",
     target: "TarifManagements",
-    items: [{
-      icon: "bubble_chart",
-      title: "Buat Tarif",
-      target: "create.Tarif",
-    }]
+    items: [
+      {
+        icon: "create",
+        title: "Buat Tarif",
+        target: "create.Tarif"
+      },
+      {
+        icon: "list",
+        title: "Daftar Tarif",
+        target: "read.Tarif"
+      }
+    ]
   }
 ]
 
