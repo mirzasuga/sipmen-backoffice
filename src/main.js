@@ -23,7 +23,8 @@ Vue.use(VueGoogleMaps, {
 Vue.use(Vuetify)
 window.$http = Axios.create({
   headers: {
-    'Accept': 'application/json'
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
   }
 })
 

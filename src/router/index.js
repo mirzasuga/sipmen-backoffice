@@ -5,6 +5,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Login from '@/views/Login'
 import BranchManagement from '@/views/BranchManagement'
 import BranchForm from '@/components/BranchForm'
+import TarifForm from '@/components/TarifForm'
 
 Vue.use(Router)
 const router = new Router({
@@ -37,6 +38,15 @@ const router = new Router({
       path: '/branch-management/new',
       name: 'create.Branch',
       component: BranchForm,
+      meta: {
+        requiresAuth: true,
+        scopes: []
+      }
+    },
+    {
+      path: '/tarif-management/new',
+      name: 'create.Tarif',
+      component: TarifForm,
       meta: {
         requiresAuth: true,
         scopes: []

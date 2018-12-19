@@ -24,6 +24,7 @@ export default {
   created () {
     this.$store.dispatch('wilayah/getAllProvinces')
     this.$store.dispatch('branch/getAllBranch')
+    this.$store.dispatch('tarif/getAllTarifs')
   },
   name: 'App'
 }

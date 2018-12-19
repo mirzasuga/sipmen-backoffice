@@ -2,7 +2,8 @@
 import router from '../../router/index'
 const state = {
   token: localStorage.getItem('token') || null,
-  user: localStorage.getItem('user') || null
+  user: localStorage.getItem('user') || null,
+  vendorDetail: localStorage.getItem('vendorDetail') || null,
 }
 
 const getters = {
@@ -11,6 +12,9 @@ const getters = {
   },
   user(state) {
     return (state.user) ? JSON.parse(state.user) : {}
+  },
+  vendorDetail(state) {
+    return (state.vendorDetail) ? JSON.parse(state.vendorDetail) : {}
   }
 }
 
@@ -35,11 +39,13 @@ const actions = {
   logout({state}) {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('vendorDetail');
     state.user = {}
     location.replace('');
   },
   loginSuccess({commit}, data) {
     commit('setToken', data.data)
+    commit('setVendorDetail', data.data)
   }
 }
 
@@ -49,6 +55,9 @@ const mutations = {
     payload.token.expired_date = new Date(now.getTime() + payload.token.expires_in * 1000).getTime();
     localStorage.setItem('token', JSON.stringify(payload.token) )
     localStorage.setItem('user', JSON.stringify(payload.user) )
+  },
+  setVendorDetail(state, payload) {
+    localStorage.setItem('vendorDetail', JSON.stringify(payload.vendorDetail) )
   }
 }
 

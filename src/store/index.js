@@ -5,6 +5,7 @@ import navbar from './modules/navbar'
 import layout from './modules/layout'
 import auth from './modules/auth'
 import branch from './modules/branch'
+import tarif from './modules/tarif'
 
 Vue.use(Vuex)
 
@@ -14,7 +15,8 @@ export default new Vuex.Store({
     wilayah,
     navbar,
     layout,
-    branch
+    branch,
+    tarif
   },
   strict: false,
   plugins: []
