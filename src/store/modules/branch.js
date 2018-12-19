@@ -1,9 +1,14 @@
 /* eslint-disable */
 const state = {
-  branches: []
+  branches: [],
+  branch: {}
 }
 
-const getters = {}
+const getters = {
+  branch(state) {
+    return state.branch
+  }
+}
 
 const actions = {
   getAllBranch({commit, rootGetters}) {
@@ -31,7 +36,7 @@ const actions = {
 
     }).then((success) => {
       console.log(success)
-      commit('shiftBranches', data)
+      commit('shiftBranches', success.data.data)
       dispatch('wilayah/clearSelected', null, { root:true })
       // this.$store.commit('SHIFT_BRANCHES',data)
       // this.$store.commit("SET_ALERT", {
@@ -58,6 +63,9 @@ const mutations = {
     } else {
       state.branches.unshift(payload);
     }
+  },
+  selectedBranch(state, branch) {
+    state.branch = branch
   }
 }
 
