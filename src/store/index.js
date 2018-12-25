@@ -6,6 +6,8 @@ import layout from './modules/layout'
 import auth from './modules/auth'
 import branch from './modules/branch'
 import tarif from './modules/tarif'
+import vehicle from './modules/vehicle'
+import notif from './modules/notif'
 
 Vue.use(Vuex)
 
@@ -16,7 +18,9 @@ export default new Vuex.Store({
     navbar,
     layout,
     branch,
-    tarif
+    tarif,
+    vehicle,
+    notif
   },
   strict: false,
   plugins: []

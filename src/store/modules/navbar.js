@@ -42,6 +42,23 @@ const MENU = [
         target: "read.Tarif"
       }
     ]
+  },
+  {
+    icon: 'commute',
+    title: "Armada",
+    target: "VehicleManagement",
+    items: [
+      {
+        icon: "create",
+        title: "Buat Armada",
+        target: "create.Vehicle"
+      },
+      {
+        icon: "list",
+        title: "Daftar Armada",
+        target: "read.Vehicle"
+      }
+    ]
   }
 ]
 

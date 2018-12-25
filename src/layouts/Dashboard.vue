@@ -6,6 +6,13 @@
       <v-toolbar-side-icon @click.stop="toggleDrawer()"></v-toolbar-side-icon>
     </v-toolbar>
     <v-content>
+      <v-alert
+        :value="notif.show"
+        :type="notif.type"
+        transition="scale-transition"
+      >
+        {{notif.msg}}
+      </v-alert>
       <router-view/>
     </v-content>
 
@@ -35,7 +42,8 @@ export default {
     }
   },
   computed: mapState({
-    clipped: state => (state.navbar.clipped)
+    clipped: state => (state.navbar.clipped),
+    notif: state => (state.notif)
   })
 }
 </script>
