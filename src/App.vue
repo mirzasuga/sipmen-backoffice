@@ -22,10 +22,13 @@ export default {
     layout: state => state.layout.layout
   }),
   created () {
-    this.$store.dispatch('wilayah/getAllProvinces')
-    this.$store.dispatch('branch/getAllBranch')
-    this.$store.dispatch('tarif/getAllTarifs')
-    this.$store.dispatch('vehicle/getAllVehicle')
+    if (this.layout === 'dashboard-layout') {
+      this.$store.dispatch('wilayah/getAllProvinces')
+      this.$store.dispatch('branch/getAllBranch')
+      this.$store.dispatch('tarif/getAllTarifs')
+      this.$store.dispatch('vehicle/getAllVehicle')
+      this.$store.dispatch('role/getAllRole')
+    }
   },
   name: 'App'
 }

@@ -9,6 +9,8 @@ import TarifForm from '@/components/TarifForm'
 import TarifList from '@/components/TarifList'
 import VehicleForm from '@/components/VehicleForm'
 import VehicleList from '@/components/VehicleList'
+import StaffForm from '@/components/StaffForm'
+import VendorStaffConfirmation from '@/components/VendorStaffConfirmation'
 
 Vue.use(Router)
 const router = new Router({
@@ -81,6 +83,23 @@ const router = new Router({
         requiresAuth: true,
         scopes: []
       }
+    },
+    {
+      path: '/staff-management/new',
+      name: 'create.Staff',
+      component: StaffForm,
+      meta: {
+        requiresAuth: true,
+        scopes: ['vendor_owner']
+      }
+    },
+    {
+      path: '/staff/:vendorId/confirmation/:token',
+      name: 'confirm.Staff',
+      component: VendorStaffConfirmation,
+      meta: {
+        guest: true
+      }
     }
   ]
 })
@@ -108,6 +127,7 @@ router.beforeEach((to, from, next) => {
             if (userScope.includes(scope)) {
               next()
             } else {
+              store.commit('notif/warning', 'Anda tidak boleh mengakses halaman tersebut')
               next({name: 'HelloWorld'})
             }
           })

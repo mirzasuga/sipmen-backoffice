@@ -15,6 +15,9 @@ const getters = {
   },
   vendorDetail(state) {
     return (state.vendorDetail) ? JSON.parse(state.vendorDetail) : {}
+  },
+  scopes (state) {
+    return (state.token) ? JSON.parse(atob(state.token.split('.')[1])).scopes : []
   }
 }
 

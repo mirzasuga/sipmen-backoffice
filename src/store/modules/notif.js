@@ -20,7 +20,16 @@ const mutations = {
     state.msg = msg
     state.type = 'success'
     state.show = true
-    console.log({Alert: state})
+  },
+  warning(state, msg) {
+    state.msg = msg
+    state.type = 'warning'
+    state.show = true
+  },
+  close(state) {
+    state.msg = ''
+    state.type = 'success'
+    state.show = false
   }
 }
 

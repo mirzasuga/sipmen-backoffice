@@ -8,6 +8,8 @@ import branch from './modules/branch'
 import tarif from './modules/tarif'
 import vehicle from './modules/vehicle'
 import notif from './modules/notif'
+import staff from './modules/staff'
+import role from './modules/role'
 
 Vue.use(Vuex)
 
@@ -20,7 +22,9 @@ export default new Vuex.Store({
     branch,
     tarif,
     vehicle,
-    notif
+    notif,
+    staff,
+    role
   },
   strict: false,
   plugins: []

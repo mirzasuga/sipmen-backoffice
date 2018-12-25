@@ -64,7 +64,8 @@ export default {
   name: 'NavigationDrawer',
   data() {
     return {
-      miniVariant: false
+      miniVariant: false,
+      userScopes: this.$store.getters['auth/scopes']
     };
   },
   computed: mapState({
@@ -79,6 +80,9 @@ export default {
     logout () {
       this.$store.dispatch('auth/logout')
     }
+  },
+  created () {
+    console.log(this.userScopes)
   }
 }
 </script>

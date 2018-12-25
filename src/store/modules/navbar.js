@@ -59,6 +59,23 @@ const MENU = [
         target: "read.Vehicle"
       }
     ]
+  },
+  {
+    icon: 'supervisor_account',
+    title: "Staff",
+    target: "StaffManagement",
+    items: [
+      {
+        icon: "create",
+        title: "Tambah Staff",
+        target: "create.Staff"
+      },
+      {
+        icon: "list",
+        title: "Daftar Staff",
+        target: "read.Staff"
+      }
+    ]
   }
 ]
 
