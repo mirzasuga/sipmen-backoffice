@@ -103,12 +103,14 @@
         this.$store.dispatch('wilayah/selectVillage', village)
       },
       submit () {
+        const lng = parseFloat(this.branch.lng)
+        const lat = parseFloat(this.branch.lat)
         const data = {
           branch_id: this.branch._id,
           vendor_name: this.vendorDetail.vendor_name,
           vendor_detail_id: this.vendorDetail.id,
           branch_name: this.branch.branch_name,
-          branch_location: [this.branch.lat, this.branch.lng],
+          coordinates: [lng, lat],
           branch_province_id: this.branch.province_id,
           branch_province_name: this.branch.province_name,
           branch_village_id: this.branch.village_id,
