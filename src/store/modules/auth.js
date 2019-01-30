@@ -62,6 +62,7 @@ const mutations = {
   setVendorDetail(state, payload) {
     localStorage.setItem('vendorDetail', JSON.stringify(payload.vendorDetail) )
   }
+  // TEST
 }
 
 export default {
