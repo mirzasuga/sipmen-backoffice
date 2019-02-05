@@ -21,40 +21,40 @@ const getters = {
 const actions = {
   submit ({commit, rootGetters}) {
 
-    // const url = `${process.env.API_ENDPOINT}/api/addressbook/create`
-    // const token = rootGetters['auth/token']
+    const url = `${process.env.API_ENDPOINT}/api/addressbook/create`
+    const token = rootGetters['auth/token']
 
-    // const DATA = {
-    //   name: state.name,
-    //   phone: state.phone,
-    //   province_id: state.province.province_id,
-    //   province_name: state.province.name,
-    //   regency_id: state.regency.regency_id,
-    //   regency_name: state.regency.name,
-    //   district_id: state.district.district_id,
-    //   district_name: state.district.name,
-    //   village_id: state.village.village_id,
-    //   village_name: state.village.name,
-    //   street: state.street,
-    //   postal_code: state.postal_code,
-    // }
-    // console.log({DATA})
-    // $http.post(url,DATA, {
-    //     headers: {
-    //         'Authorization': `Bearer ${token}`
-    //     }
-    // })
-    // .then(success => {
+    const DATA = {
+      name: state.name,
+      phone: state.phone,
+      province_id: state.province.province_id,
+      province_name: state.province.name,
+      regency_id: state.regency.regency_id,
+      regency_name: state.regency.name,
+      district_id: state.district.district_id,
+      district_name: state.district.name,
+      village_id: state.village.village_id,
+      village_name: state.village.name,
+      street: state.street,
+      postal_code: state.postal_code,
+    }
+    console.log({DATA})
+    $http.post(url,DATA, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(success => {
 
-    //   // commit('shiftTarifs', success.data.data)
-    //   commit('notif/success', success.message, {root: true})
-    //   console.log({success})
+      // commit('shiftTarifs', success.data.data)
+      commit('notif/success', success.message, {root: true})
+      commit('CLOSE')
+      console.log({success})
 
 
-    // }, error => {
-    //   console.log({CreateTarif: error})
-    // })
-    commit('CLOSE')
+    }, error => {
+      console.log({CreateTarif: error})
+    })
 
   }
 }
