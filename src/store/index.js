@@ -10,6 +10,7 @@ import vehicle from './modules/vehicle'
 import notif from './modules/notif'
 import staff from './modules/staff'
 import role from './modules/role'
+import addressbookdialog from './modules/addressbookdialog'
 
 Vue.use(Vuex)
 
@@ -24,7 +25,8 @@ export default new Vuex.Store({
     vehicle,
     notif,
     staff,
-    role
+    role,
+    addressbookdialog
   },
   strict: false,
   plugins: []
