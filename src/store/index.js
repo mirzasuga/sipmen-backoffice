@@ -11,6 +11,7 @@ import notif from './modules/notif'
 import staff from './modules/staff'
 import role from './modules/role'
 import addressbookdialog from './modules/addressbookdialog'
+import addressbook from './modules/addressbook'
 
 Vue.use(Vuex)
 
@@ -26,7 +27,8 @@ export default new Vuex.Store({
     notif,
     staff,
     role,
-    addressbookdialog
+    addressbookdialog,
+    addressbook
   },
   strict: false,
   plugins: []
