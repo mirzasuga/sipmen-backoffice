@@ -41,7 +41,7 @@
           <v-flex xs5>
             <v-text-field :mask="`#########`" v-model="min_kg" label="Berat Minimum" suffix="KG"></v-text-field>
           </v-flex>
-          
+
         </v-layout>
 
         <v-layout align-center justify-space-around row fill-height>

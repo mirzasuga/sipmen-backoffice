@@ -127,6 +127,12 @@ const mutations = {
     activeVillage (state, village) {
       state.village = village
     },
+    RESET (state) {
+      state.province = {}
+      state.regency = {}
+      state.district = {}
+      state.village = {}
+    }
 }
 
 export default {
