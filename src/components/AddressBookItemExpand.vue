@@ -18,6 +18,7 @@
 </template>
 
 <script>
+  // import { mapActions } from 'vuex'
   export default {
     name: 'AddressBookItem',
     data () {
@@ -27,7 +28,9 @@
     },
     props: ['addressBook', 'onSelected'],
     methods: {
-      itemSelected: function (element) { this.onSelected(element) }
+      itemSelected: function (element) {
+        this.$store.commit('addressbook/selectAddressBook', element)
+      }
     }
   }
 </script>
