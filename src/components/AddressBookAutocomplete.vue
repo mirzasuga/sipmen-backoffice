@@ -7,8 +7,10 @@
   placeholder="Nomor Handphone"
 ></v-text-field>
   <span v-if="expandType">
-    <AddressBookItemExpand v-for="item in items" :key="item.id" :addressBook=item
-    :onSelected="onSelectedItem"></AddressBookItemExpand>
+    <AddressBookItemExpand v-for="item in items" :key="item.id" :addressBook=item></AddressBookItemExpand>
+  </span>
+  <span v-if="items.length < 1">
+    <AddressBookDialog></AddressBookDialog>
   </span>
 </div>
 </template>
@@ -17,16 +19,17 @@
   import _ from 'lodash'
   import { mapState } from 'vuex'
   import AddressBookItemExpand from '@/components/AddressBookItemExpand'
+  import AddressBookDialog from '@/components/AddressBookDialog'
   export default {
     name: 'AddressBookAutocomplete',
-    components: { AddressBookItemExpand },
+    components: { AddressBookItemExpand, AddressBookDialog },
     data () {
       return {
         phone: null,
         debounceTime: 700
       }
     },
-    props: ['expandType', 'onSelectedItem'],
+    props: ['expandType'],
     watch: {
       phone: function (phone) {
         if (phone !== '') { this.delayTypingPhone(phone) }
