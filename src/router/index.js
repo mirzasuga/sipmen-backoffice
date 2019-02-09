@@ -11,6 +11,8 @@ import VehicleForm from '@/components/VehicleForm'
 import VehicleList from '@/components/VehicleList'
 import StaffForm from '@/components/StaffForm'
 import VendorStaffConfirmation from '@/components/VendorStaffConfirmation'
+// import PengirimanForm from '@/components/PengirimanForm'
+import PengirimanPage from '@/components/PengirimanPage'
 
 Vue.use(Router)
 const router = new Router({
@@ -99,6 +101,20 @@ const router = new Router({
       component: VendorStaffConfirmation,
       meta: {
         guest: true
+      }
+    },
+    {
+      path: '/pengiriman/new',
+      name: 'create.Pengiriman',
+      component: PengirimanPage,
+      meta: {
+        requiresAuth: true,
+        scopes: []
+        // TODO: set scopes
+        // scopes: [
+        //   'vendor_owner',
+        //   'counter_office'
+        // ]
       }
     }
   ]
