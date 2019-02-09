@@ -30,6 +30,7 @@
     methods: {
       itemSelected: function (element) {
         this.$store.commit('addressbook/selectAddressBook', element)
+        this.$emit('selected', element)
       }
     }
   }

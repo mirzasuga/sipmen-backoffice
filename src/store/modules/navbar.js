@@ -76,6 +76,23 @@ const MENU = [
         target: "read.Staff"
       }
     ]
+  },
+  {
+    icon: 'supervisor_account',
+    title: "Pengiriman",
+    target: "ShippingManagement",
+    items: [
+      {
+        icon: "create",
+        title: "Tambah Pengiriman",
+        target: "create.Pengiriman"
+      },
+      {
+        icon: "list",
+        title: "Daftar Pengiriman",
+        target: "read.Pengiriman"
+      }
+    ]
   }
 ]
 

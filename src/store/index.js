@@ -12,6 +12,7 @@ import staff from './modules/staff'
 import role from './modules/role'
 import addressbookdialog from './modules/addressbookdialog'
 import addressbook from './modules/addressbook'
+import pengiriman from './modules/pengiriman'
 
 Vue.use(Vuex)
 
@@ -28,7 +29,8 @@ export default new Vuex.Store({
     staff,
     role,
     addressbookdialog,
-    addressbook
+    addressbook,
+    pengiriman
   },
   strict: false,
   plugins: []

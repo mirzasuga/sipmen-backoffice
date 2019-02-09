@@ -7,7 +7,8 @@
   placeholder="Nomor Handphone"
 ></v-text-field>
   <span v-if="expandType">
-    <AddressBookItemExpand v-for="item in items" :key="item.id" :addressBook=item></AddressBookItemExpand>
+    <AddressBookItemExpand v-for="item in items" :key="item.id" :addressBook=item
+    v-on:selected="itemSelected"></AddressBookItemExpand>
   </span>
   <span v-if="items.length < 1">
     <AddressBookDialog></AddressBookDialog>
@@ -39,6 +40,9 @@
       this.delayTypingPhone = _.debounce(this.fetchAddressBook, this.debounceTime)
     },
     methods: {
+      itemSelected (e) {
+        this.$emit('itemSelected', e)
+      },
       fetchAddressBook (phone) {
         this.$store.dispatch('addressbook/getAddressBookByPhone', phone)
       }

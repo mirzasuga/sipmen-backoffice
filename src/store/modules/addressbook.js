@@ -40,6 +40,10 @@ const mutations = {
   },
   selectAddressBook(state, addressbook) {
       state.selectedAddressBook = addressbook
+      mutations.CLEAR_ITEMS(state)
+  },
+  CLEAR_ITEMS(state) {
+    state.addressbooks = []
   }
 }
 
