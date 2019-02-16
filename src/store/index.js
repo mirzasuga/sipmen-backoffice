@@ -14,6 +14,7 @@ import addressbookdialog from './modules/addressbookdialog'
 import addressbook from './modules/addressbook'
 import pengiriman from './modules/pengiriman'
 import resi from './modules/resi'
+import pengirimandetaildialog from './modules/pengirimandetaildialog'
 
 Vue.use(Vuex)
 
@@ -32,7 +33,8 @@ export default new Vuex.Store({
     addressbookdialog,
     addressbook,
     pengiriman,
-    resi
+    resi,
+    pengirimandetaildialog
   },
   strict: false,
   plugins: []

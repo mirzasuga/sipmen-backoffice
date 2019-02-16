@@ -85,12 +85,12 @@ const MENU = [
       {
         icon: "create",
         title: "Tambah Pengiriman",
-        target: "create.Pengiriman"
+        target: "create.Shipping"
       },
       {
         icon: "list",
         title: "Daftar Pengiriman",
-        target: "read.Pengiriman"
+        target: "list.Shipping"
       }
     ]
   }

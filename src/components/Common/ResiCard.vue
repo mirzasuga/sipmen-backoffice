@@ -4,7 +4,7 @@
     <v-layout row wrap>
       <v-flex xs12>
         <div style="background-color:red;">
-          asdasdasd
+          <p style="color:white; padding:10px">Powered By: SIPMEN.COM</p>
         </div>
       </v-flex>
     </v-layout>

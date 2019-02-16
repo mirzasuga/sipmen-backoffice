@@ -13,6 +13,7 @@ import StaffForm from '@/components/StaffForm'
 import VendorStaffConfirmation from '@/components/VendorStaffConfirmation'
 // import PengirimanForm from '@/components/PengirimanForm'
 import PengirimanPage from '@/components/PengirimanPage'
+import PengirimanList from '@/components/Pengiriman/PengirimanList'
 
 Vue.use(Router)
 const router = new Router({
@@ -104,13 +105,26 @@ const router = new Router({
       }
     },
     {
-      path: '/pengiriman/new',
-      name: 'create.Pengiriman',
+      path: '/shipping-management/new',
+      name: 'create.Shipping',
       component: PengirimanPage,
       meta: {
         requiresAuth: true,
         scopes: []
         // TODO: set scopes
+        // scopes: [
+        //   'vendor_owner',
+        //   'counter_office'
+        // ]
+      }
+    },
+    {
+      path: '/shipping-management',
+      name: 'list.Shipping',
+      component: PengirimanList,
+      meta: {
+        requiresAuth: true,
+        scopes: []
         // scopes: [
         //   'vendor_owner',
         //   'counter_office'
