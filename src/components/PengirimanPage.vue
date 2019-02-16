@@ -1,25 +1,27 @@
 <template>
 <div>
-  <PengirimanForm></PengirimanForm>
-
+  <PengirimanForm v-if="!showResi"></PengirimanForm>
+  <ResiCard></ResiCard>
 </div>
 </template>
 
 <script>
   import PengirimanForm from '@/components/PengirimanForm'
+  import ResiCard from '@/components/Common/ResiCard'
+  import {mapState} from 'vuex'
 
   export default {
     name: 'PengirimanPage',
-    components: { PengirimanForm },
+    components: { PengirimanForm, ResiCard },
     data () {
-      return {
-
-      }
+      return {}
     },
     methods: {
 
     },
-    computed: {},
+    computed: mapState({
+      showResi: state => state.resi.show
+    }),
     watch: {}
 
   }

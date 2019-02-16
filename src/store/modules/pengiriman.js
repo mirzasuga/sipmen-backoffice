@@ -17,7 +17,7 @@ const actions = {
     const total = state.tarif * state.berat;
     commit('SET_TOTAL', total)
   },
-  SUBMIT ({commit, rootGetters}) {
+  SUBMIT ({commit, rootGetters, dispatch}) {
     const DATA = {
       sender_id: state.pengirim.id,
       receiver_id: state.penerima.id,
@@ -37,8 +37,9 @@ const actions = {
         }
     })
     .then(success => {
-      commit('notif/success', success.message, {root: true})
+      commit('notif/success', success.data.message, {root: true})
       commit('CLEAR')
+      dispatch('resi/cetak', success.data.data, {root: true})
       console.log({success})
 
 

@@ -13,6 +13,7 @@ import role from './modules/role'
 import addressbookdialog from './modules/addressbookdialog'
 import addressbook from './modules/addressbook'
 import pengiriman from './modules/pengiriman'
+import resi from './modules/resi'
 
 Vue.use(Vuex)
 
@@ -30,7 +31,8 @@ export default new Vuex.Store({
     role,
     addressbookdialog,
     addressbook,
-    pengiriman
+    pengiriman,
+    resi
   },
   strict: false,
   plugins: []
