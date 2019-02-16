@@ -23,7 +23,7 @@ const actions = {
           }
       })
       .then(success => {
-          console.log({success})
+
           commit('setRoles', success.data.data)
 
       }, error => {
