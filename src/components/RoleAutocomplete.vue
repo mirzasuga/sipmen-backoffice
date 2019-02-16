@@ -4,7 +4,7 @@
     :items="roles"
     :readonly="!isEditing"
     :label="`Pilih Role`"
-    item-text="name"
+    item-text="display"
     item-value="id"
     persistent-hint
     prepend-icon="mdi-city"
