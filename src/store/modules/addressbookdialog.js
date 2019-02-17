@@ -38,7 +38,7 @@ const actions = {
       street: state.street,
       postal_code: state.postal_code,
     }
-    console.log({DATA})
+
     $http.post(url,DATA, {
         headers: {
             'Authorization': `Bearer ${token}`
@@ -49,7 +49,7 @@ const actions = {
       // commit('shiftTarifs', success.data.data)
       commit('notif/success', success.message, {root: true})
       commit('CLOSE')
-      console.log({success})
+
 
 
     }, error => {
@@ -62,7 +62,6 @@ const actions = {
 const mutations = {
   SET_PROVINCE (state, province) {
     state.province = province
-    console.log('SET_PROVINCE')
   },
   SET_REGENCY (state, regency) {
     state.regency = regency
@@ -95,7 +94,6 @@ const mutations = {
     state.postal_code = null
   },
   TOGGLE (state, val) {
-    console.log({val})
     state.isOpen = val
   },
   CLOSE (state) {

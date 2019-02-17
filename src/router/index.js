@@ -97,7 +97,7 @@ const router = new Router({
       }
     },
     {
-      path: '/staff/:vendorId/confirmation/:token',
+      path: '/staff/confirmation/:vendorId/:token',
       name: 'confirm.Staff',
       component: VendorStaffConfirmation,
       meta: {

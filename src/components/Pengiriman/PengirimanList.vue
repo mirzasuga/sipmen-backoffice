@@ -22,7 +22,7 @@
               <v-list-tile
                 v-for="(item, index) in listActions"
                 :key="index"
-                @click="listActionHandler({type: item.action, element: props.item})"
+                @click="listActionHandler({type: item, element: props.item})"
               >
                 <v-list-tile-title>{{ item.title }}</v-list-tile-title>
               </v-list-tile>

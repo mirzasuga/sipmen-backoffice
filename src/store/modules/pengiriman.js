@@ -9,7 +9,9 @@ const state = {
   listActions: [
     {
       title: 'Lihat Detail',
-      action: 'pengirimandetaildialog/open'
+      action: 'pengirimandetaildialog/open',
+      // Component for Dialog Content
+      component: 'ResiCard'
     },
     {
       title: 'Lacak Pengiriman',
@@ -21,7 +23,9 @@ const state = {
     },
     {
       title: 'Histori Status',
-      action: 'viewHistory'
+      action: 'pengirimandetaildialog/open',
+      // Component for Dialog Content
+      component: 'ShippingStatusesStepper'
     }
   ]
 }
@@ -47,7 +51,6 @@ const actions = {
       total_biaya: state.total,
       is_fragile: 0
     }
-    console.log({DATA})
 
     const url = `${process.env.API_ENDPOINT}/resi/create`
     const token = rootGetters['auth/token']
@@ -61,7 +64,6 @@ const actions = {
       commit('notif/success', success.data.message, {root: true})
       commit('CLEAR')
       dispatch('resi/cetak', success.data.data, {root: true})
-      console.log({success})
 
 
     }, error => {
@@ -82,7 +84,6 @@ const actions = {
       // commit('CLEAR')
       // dispatch('resi/cetak', success.data.data, {root: true})
       commit('SET_LIST',success.data.data.data)
-      console.log({success})
 
 
     }, error => {
@@ -90,7 +91,11 @@ const actions = {
     })
   },
   listActionHandler ({commit, dispatch}, {type, element}) {
-    dispatch(`${type}`, element, {root:true})
+    const payload = {
+      data: element,
+      component: type.component
+    }
+    dispatch(`${type.action}`, payload, {root:true})
   }
 
 }

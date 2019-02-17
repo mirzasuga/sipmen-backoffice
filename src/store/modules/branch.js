@@ -35,7 +35,6 @@ const actions = {
       }
 
     }).then((success) => {
-      console.log(success)
       commit('shiftBranches', success.data.data)
       dispatch('wilayah/clearSelected', null, { root:true })
       // this.$store.commit('SHIFT_BRANCHES',data)
