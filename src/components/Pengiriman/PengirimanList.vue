@@ -52,7 +52,7 @@
           {
             text: 'Penerima',
             align: 'left',
-            sortable: true
+            sortable: false
           },
           {
             text: 'Pengirim',

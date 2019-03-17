@@ -4,5 +4,6 @@ const prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  API_ENDPOINT: '"http://sipmen.mdev"'
+  // API_ENDPOINT: '"http://sipmen.mdev"'
+  API_ENDPOINT: '"http://sipmen-api.herokuapp.com"'
 })

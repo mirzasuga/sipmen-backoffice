@@ -15,7 +15,8 @@ const state = {
     },
     {
       title: 'Lacak Pengiriman',
-      action: 'lacak'
+      action: 'pengirimandetaildialog/open',
+      component: 'LiveTrackingMap'
     },
     {
       title: 'Lihat Review',
@@ -64,7 +65,7 @@ const actions = {
       commit('notif/success', success.data.message, {root: true})
       commit('CLEAR')
       dispatch('resi/cetak', success.data.data, {root: true})
-
+      commit('SHIFT_LIST', success.data.data)
 
     }, error => {
       console.log({CreatePengiriman: error})
@@ -113,7 +114,14 @@ const mutations = {
     state.berat = 0;
     state.total = 0;
   },
-  SET_LIST (state, list) { state.list = list }
+  SET_LIST (state, list) { state.list = list },
+  SHIFT_LIST (state, pengiriman) {
+    if(state.list.length > 0) {
+      state.list.push( pengiriman )
+    } else {
+      state.list.unshift( pengiriman )
+    }
+  }
 }
 
 export default {

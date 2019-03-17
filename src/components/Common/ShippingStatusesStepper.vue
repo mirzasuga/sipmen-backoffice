@@ -35,7 +35,10 @@
       })
     },
     beforeDestroy () {
+      console.log('STEPPER DESTROYED')
       this.$store.dispatch('shippingstatuses/reset')
+      this.$store.dispatch('pengirimandetaildialog/close')
+      this.$store.dispatch('resi/reset')
     }
   }
 </script>

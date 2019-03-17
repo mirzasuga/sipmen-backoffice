@@ -28,11 +28,13 @@
   import {mapState, mapActions} from 'vuex'
   import ResiCard from '@/components/Common/ResiCard'
   import ShippingStatusesStepper from '@/components/Common/ShippingStatusesStepper'
+  import LiveTrackingMap from '@/components/Common/LiveTrackingMap'
   export default {
     name: 'PengirimanDetailDialog',
     components: {
       'ShippingStatusesStepper': ShippingStatusesStepper,
-      'ResiCard': ResiCard
+      'ResiCard': ResiCard,
+      'LiveTrackingMap': LiveTrackingMap
     },
     data () {
       return {

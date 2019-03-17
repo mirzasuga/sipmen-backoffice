@@ -22,6 +22,14 @@ export default {
     layout: state => state.layout.layout
   }),
   created () {
+    var echo = window.Echo
+    console.log({echo})
+    echo.private(`my-channel`)
+        .listen('my-event', (data) => alert(JSON.stringify(data)))
+    // var channel = pusher.subscribe('my-channel')
+    // channel.bind('my-event', function (data) {
+    //   alert(JSON.stringify(data))
+    // })
     if (this.layout === 'dashboard-layout') {
       this.$store.dispatch('wilayah/getAllProvinces')
       this.$store.dispatch('branch/getAllBranch')

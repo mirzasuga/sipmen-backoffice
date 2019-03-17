@@ -21,7 +21,7 @@ const getters = {
 const actions = {
   submit ({commit, rootGetters}) {
 
-    const url = `${process.env.API_ENDPOINT}/api/addressbook/create`
+    const url = `${process.env.API_ENDPOINT}/addressbook/create`
     const token = rootGetters['auth/token']
 
     const DATA = {

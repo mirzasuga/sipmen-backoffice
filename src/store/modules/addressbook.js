@@ -15,7 +15,7 @@ const getters = {
 const actions = {
   getAddressBookByPhone({commit, rootGetters}, phone) {
     state.addressbooks = []
-    const url = `${process.env.API_ENDPOINT}/api/addressbook/search?phone=${phone}`
+    const url = `${process.env.API_ENDPOINT}/addressbook/search?phone=${phone}`
     const token = rootGetters['auth/token']
     $http.get(url, {
         headers: {

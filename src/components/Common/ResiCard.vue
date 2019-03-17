@@ -91,9 +91,9 @@
     </v-layout>
     <v-layout row wrap text-md-center>
       <v-flex xs3 style="padding:30px">
-        <img src="http://chart.apis.google.com/chart?cht=qr&chs=150x150&chl=RESI123&chld=H|0" alt="RESI123">
+        <img :src="`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=`+data.id+`&chld=H|0`" alt="RESI123">
         <br/>
-        <b>RESI123</b>
+        <b>{{data.id}}</b>
       </v-flex>
 
       <v-flex xs3 style="padding:30px">
