@@ -27,7 +27,8 @@
     "vue-router": "^3.0.1",
     "vue2-google-maps": "^0.10.5",
     "vuetify": "^1.0.0",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "express": "^4.16.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
