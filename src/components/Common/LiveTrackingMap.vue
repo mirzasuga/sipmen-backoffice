@@ -7,7 +7,7 @@
         <v-flex xs12>
 
         <GmapMap
-          :center="coords"
+          :center="{lat: -6.17017, lng: 106.8291959}"
           :zoom="15"
           map-type-id="roadmap"
 
