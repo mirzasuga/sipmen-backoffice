@@ -17,6 +17,7 @@ import resi from './modules/resi'
 import pengirimandetaildialog from './modules/pengirimandetaildialog'
 import shippingstatuses from './modules/shippingstatuses'
 import courierlocation from './modules/courierlocation'
+import registerform from './modules/registerform'
 
 Vue.use(Vuex)
 
@@ -38,7 +39,8 @@ export default new Vuex.Store({
     resi,
     pengirimandetaildialog,
     shippingstatuses,
-    courierlocation
+    courierlocation,
+    registerform
   },
   strict: false,
   plugins: []

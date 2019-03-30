@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import store from '../store'
 import HelloWorld from '@/components/HelloWorld'
 import Login from '@/views/Login'
+import Register from '@/views/Register'
 import BranchManagement from '@/views/BranchManagement'
 import BranchForm from '@/components/BranchForm'
 import TarifForm from '@/components/TarifForm'
@@ -31,6 +32,12 @@ const router = new Router({
       path: '/login',
       name: 'Login',
       component: Login,
+      meta: {guest: true}
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register,
       meta: {guest: true}
     },
     {
