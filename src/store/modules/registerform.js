@@ -1,4 +1,7 @@
 /* eslint-disable */
+
+import router from '../../router/index'
+
 const state = {
   elmRefs: null,
   valid: false,
@@ -45,7 +48,7 @@ const getters = {
 
 const actions = {
 
-  submit({commit, rootGetters}) {
+  submit({commit, rootGetters, dispatch}) {
     state.loading = true
     const url = `${process.env.API_ENDPOINT}/vendor/register`
     const {username, email, password, mobile_phone, name} = state
@@ -60,6 +63,7 @@ const actions = {
       success => {
         commit('notif/success', success.message, {root: true})
         commit('RESET')
+        dispatch('success')
         state.loading = false
       },
       error => {
@@ -71,13 +75,13 @@ const actions = {
     )
   },
   reset({commit, rootGetters}, {vm}) {
-    console.log(vm)
-
     vm.$refs.registerForm.reset()
-    // vm.$refs.registerForm.resetValidation()
   },
   removeErrors({commit, rootGetters}, name) {
     commit('RESET_ERRORS', name)
+  },
+  success({commit}) {
+    router.push('Login')
   }
 }
 
