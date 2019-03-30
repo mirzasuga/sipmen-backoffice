@@ -17,7 +17,7 @@ import Echo from 'laravel-echo'
 
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyDtK4drbjrxlU6sNG4BzNG5vAuWLE5hbC8',
+    key: '',
     libraries: 'places,drawing,visualization'
   }
 })
@@ -46,14 +46,8 @@ if (typeof Pusher !== 'undefined') {
         Accept: 'application/json'
       }
     },
-    broadcaster: 'pusher',
-    key: '15c2532c19176297ca2c',
-    // host: 'sipmen-websocket.herokuapp.com' + ':15468'
-    host: 'ws-mt1.pusher.com/app/26a7c4cf0e6a9769de4a',
-    // host: 'ws://sipmen-echo-server.herokuapp.com:58852',
-    // host: 'localhost:6001',
-    cluster: 'ap1',
-    // authEndpoint: 'https://sipmen-api.herokuapp.com/broadcasting/auth'
+    broadcaster: 'socket.io',
+    host: 'sipmen-echo-server.herokuapp.com:51915',
     authEndpoint: 'https://sipmen-api.herokuapp.com/broadcast/auth'
   })
 }
