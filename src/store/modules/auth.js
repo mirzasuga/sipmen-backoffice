@@ -32,9 +32,11 @@ const actions = {
         dispatch('loginSuccess', data).then(() => {
           router.go('/');
         })
+        commit('notif/success', 'Berhasil login', {root:true})
 
     }, ({response}) => {
         // dispatch('LOGIN_FAILURE', response);
+        dispatch('notif/error', response, {root:true})
         console.log(response)
     })
 

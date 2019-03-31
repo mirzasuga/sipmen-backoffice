@@ -18,6 +18,7 @@ import pengirimandetaildialog from './modules/pengirimandetaildialog'
 import shippingstatuses from './modules/shippingstatuses'
 import courierlocation from './modules/courierlocation'
 import registerform from './modules/registerform'
+import emailverification from './modules/emailverification'
 
 Vue.use(Vuex)
 
@@ -40,7 +41,8 @@ export default new Vuex.Store({
     pengirimandetaildialog,
     shippingstatuses,
     courierlocation,
-    registerform
+    registerform,
+    emailverification
   },
   strict: false,
   plugins: []

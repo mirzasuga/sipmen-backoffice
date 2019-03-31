@@ -12,7 +12,21 @@ const getters = {
 }
 
 const actions = {
-  
+  reset ({commit}) {
+    commit('close')
+  },
+  error({commit}, error) {
+    let msg = 'Terjadi kesalahan'
+    switch (error.status) {
+      case 401: msg = error.data.error
+        break;
+      case 403: msg = error.data.message
+        break;
+      default:
+        break;
+    }
+    commit('notif/error', msg, {root:true})
+  }
 }
 
 const mutations = {
@@ -24,6 +38,11 @@ const mutations = {
   warning(state, msg) {
     state.msg = msg
     state.type = 'warning'
+    state.show = true
+  },
+  error(state, msg) {
+    state.msg = msg
+    state.type = 'error'
     state.show = true
   },
   close(state) {

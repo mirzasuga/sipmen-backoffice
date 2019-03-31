@@ -81,6 +81,7 @@ const actions = {
     commit('RESET_ERRORS', name)
   },
   success({commit}) {
+    commit('notif/success', 'Berhasil daftar, Silakan cek email anda untuk verifikasi', {root:true})
     router.push('Login')
   }
 }

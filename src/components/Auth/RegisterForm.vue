@@ -66,18 +66,18 @@
         ></v-text-field>
 
         <v-btn
+          color="error"
+          @click="reset"
+        >
+          Batal
+        </v-btn>
+
+        <v-btn
           :disabled="loading"
           color="success"
           @click.prevent="submit"
         >
           Submit
-        </v-btn>
-
-        <v-btn
-          color="error"
-          @click="reset"
-        >
-          Batal
         </v-btn>
 
       </v-form>

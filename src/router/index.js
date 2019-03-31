@@ -15,6 +15,8 @@ import VendorStaffConfirmation from '@/components/VendorStaffConfirmation'
 // import PengirimanForm from '@/components/PengirimanForm'
 import PengirimanPage from '@/components/PengirimanPage'
 import PengirimanList from '@/components/Pengiriman/PengirimanList'
+import EmailVerificationPage from '@/views/EmailVerificationPage'
+import NotFoundPage from '@/views/NotFoundPage'
 
 Vue.use(Router)
 const router = new Router({
@@ -136,6 +138,22 @@ const router = new Router({
         //   'vendor_owner',
         //   'counter_office'
         // ]
+      }
+    },
+    {
+      path: '/verify-email/:vendorId/:token',
+      name: 'verifyEmail',
+      component: EmailVerificationPage,
+      meta: {
+        guest: true
+      }
+    },
+    {
+      path: '*',
+      name: 'notfound',
+      component: NotFoundPage,
+      meta: {
+        guest: true
       }
     }
   ]

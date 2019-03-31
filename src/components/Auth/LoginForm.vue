@@ -13,8 +13,9 @@
             <v-form>
               <v-text-field
                 prepend-icon="person"
-                name="Username"
-                label="Username"
+                name="E-mail"
+                label="E-mail"
+                @input="resetAlert"
                 v-model="username"
               ></v-text-field>
               <v-text-field
@@ -22,8 +23,10 @@
                 name="Password"
                 label="Password"
                 type="password"
+                @input="resetAlert"
                 v-model="password"
               ></v-text-field>
+              <SipmenAlert></SipmenAlert>
               <v-card-actions>
                 <v-btn primary large block @click="handleLogin">Login</v-btn>
               </v-card-actions>
@@ -36,7 +39,10 @@
 </template>
 
 <script>
+import SipmenAlert from '../Common/SipmenAlert'
+import {mapState, mapActions} from 'vuex'
 export default {
+  components: { SipmenAlert },
   name: 'LoginForm',
   created () {
 
@@ -53,7 +59,14 @@ export default {
         username: this.username,
         password: this.password
       })
-    }
+    },
+    ...mapActions({
+      resetAlert: 'notif/reset'
+    })
+  },
+  computed: {
+    ...mapState({
+    })
   }
 }
 </script>
